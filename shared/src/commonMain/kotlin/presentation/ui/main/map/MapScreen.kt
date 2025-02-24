@@ -20,7 +20,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import common.Context
 import common.MapComponent
-import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.koinInject
 import presentation.ui.main.map.view_model.MapEvent
@@ -28,7 +27,7 @@ import presentation.ui.main.map.view_model.MapViewModel
 import shoping_by_kmp.shared.generated.resources.Res
 import shoping_by_kmp.shared.generated.resources.location
 
-@OptIn(ExperimentalMaterial3Api::class, ExperimentalResourceApi::class)
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MapScreen(
     context: Context,
@@ -50,7 +49,6 @@ fun MapScreen(
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
-                    // Request location permission if needed and update location
                     viewModel.onTriggerEvent(MapEvent.OnLocationUpdate(37.7749, -122.4194))
                 }
             ) {
@@ -68,11 +66,12 @@ fun MapScreen(
                 .padding(paddingValues)
         ) {
             MapComponent(
-                modifier = Modifier.fillMaxSize(),
-                latitude = state.latitude,
-                longitude = state.longitude,
-                onLocationUpdate = { lat, lng ->
-                    viewModel.onTriggerEvent(MapEvent.OnLocationUpdate(lat, lng))
+                context = context,
+                onLatitude = { latitude ->
+                    viewModel.onTriggerEvent(MapEvent.OnLocationUpdate(latitude, state.longitude))
+                },
+                onLongitude = { longitude ->
+                    viewModel.onTriggerEvent(MapEvent.OnLocationUpdate(state.latitude, longitude))
                 }
             )
         }
