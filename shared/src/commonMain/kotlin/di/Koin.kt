@@ -54,6 +54,8 @@ import presentation.ui.main.search.view_model.SearchViewModel
 import presentation.ui.main.settings.view_model.SettingsViewModel
 import presentation.ui.main.wishlist.view_model.WishlistViewModel
 import presentation.ui.splash.view_model.LoginViewModel
+import presentation.ui.main.map.view_model.MapViewModel
+
 
 
 fun appModule(context: Context) = module {
@@ -107,4 +109,5 @@ fun appModule(context: Context) = module {
     single { CheckTokenUseCase(get()) }
     single { HomeUseCase(get(), get()) }
     single { ProductUseCase(get(), get()) }
+    factory { MapViewModel() }
 }

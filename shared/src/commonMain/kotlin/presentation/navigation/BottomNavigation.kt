@@ -10,6 +10,8 @@ import shoping_by_kmp.shared.generated.resources.home
 import shoping_by_kmp.shared.generated.resources.home_border
 import shoping_by_kmp.shared.generated.resources.profile
 import shoping_by_kmp.shared.generated.resources.profile_border
+import shoping_by_kmp.shared.generated.resources.location
+import shoping_by_kmp.shared.generated.resources.location2
 
 sealed class BottomNavigation (
     val route: String,
@@ -41,6 +43,13 @@ sealed class BottomNavigation (
         selectedIcon = Res.drawable.profile,
         unSelectedIcon = Res.drawable.profile_border
     )
+
+   data object Map : BottomNavigation(
+        route = "Map", title = "Map",
+        selectedIcon = Res.drawable.location,
+        unSelectedIcon = Res.drawable.location2
+    )
+
 
 
 }
