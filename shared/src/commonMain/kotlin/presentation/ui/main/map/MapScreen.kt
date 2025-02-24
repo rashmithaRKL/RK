@@ -66,10 +66,10 @@ fun MapScreen(
             MapComponent(
                 context = context,
                 onLatitude = { latitude ->
-                    viewModel.onTriggerEvent(MapViewModel.Event.OnLocationUpdate(latitude, state.value.longitude))
+                    viewModel.onTriggerEvent(MapViewModel.Event.OnLocationUpdate(latitude, state.latitude))
                 },
                 onLongitude = { longitude ->
-                    viewModel.onTriggerEvent(MapViewModel.Event.OnLocationUpdate(state.value.latitude, longitude))
+                    viewModel.onTriggerEvent(MapViewModel.Event.OnLocationUpdate(state.longitude, longitude))
                 }
             )
         }

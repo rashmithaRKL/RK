@@ -7,7 +7,6 @@ import business.core.UIComponent
 import business.core.ViewEvent
 import business.core.ViewSingleAction
 import business.core.ViewState
-import business.datasource.network.common.JAlertResponse
 
 class MapViewModel : BaseViewModel<MapViewModel.Event, MapViewModel.State, MapViewModel.Action>() {
     
@@ -42,7 +41,7 @@ class MapViewModel : BaseViewModel<MapViewModel.Event, MapViewModel.State, MapVi
         val latitude: Double = 0.0,
         val longitude: Double = 0.0,
         val progressBarState: ProgressBarState = ProgressBarState.Idle,
-        val errorQueue: Queue<UIComponent> = Queue(listOf())
+        val errorQueue: Queue<UIComponent> = Queue(emptyList())
     ) : ViewState
 
     sealed interface Action : ViewSingleAction
