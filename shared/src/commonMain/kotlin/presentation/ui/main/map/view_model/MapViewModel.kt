@@ -41,7 +41,7 @@ class MapViewModel : BaseViewModel<MapViewModel.Event, MapViewModel.State, MapVi
         val latitude: Double = 0.0,
         val longitude: Double = 0.0,
         val progressBarState: ProgressBarState = ProgressBarState.Idle,
-        val errorQueue: Queue<UIComponent> = Queue(emptyList())
+        val errorQueue: Queue<UIComponent> = Queue(mutableListOf<UIComponent>())
     ) : ViewState
 
     sealed interface Action : ViewSingleAction
