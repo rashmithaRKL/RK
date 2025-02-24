@@ -7,8 +7,7 @@ import business.core.UIComponent
 import business.core.ViewEvent
 import business.core.ViewSingleAction
 import business.core.ViewState
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
+import business.datasource.network.common.JAlertResponse
 
 class MapViewModel : BaseViewModel<MapViewModel.Event, MapViewModel.State, MapViewModel.Action>() {
     
@@ -21,8 +20,8 @@ class MapViewModel : BaseViewModel<MapViewModel.Event, MapViewModel.State, MapVi
             }
             Event.OnError -> {
                 setError {
-                    UIComponent.Dialog(
-                        title = "Error",
+                    UIComponent.DialogSimple(
+                        title = "Location Error",
                         description = "Failed to get location. Please check your permissions and try again."
                     )
                 }
@@ -34,19 +33,17 @@ class MapViewModel : BaseViewModel<MapViewModel.Event, MapViewModel.State, MapVi
         setState { copy(latitude = latitude, longitude = longitude) }
     }
 
-    sealed class Event : ViewEvent {
-        data class OnLocationUpdate(val latitude: Double, val longitude: Double) : Event()
-        object OnError : Event()
+    sealed interface Event : ViewEvent {
+        data class OnLocationUpdate(val latitude: Double, val longitude: Double) : Event
+        data object OnError : Event
     }
 
     data class State(
         val latitude: Double = 0.0,
         val longitude: Double = 0.0,
         val progressBarState: ProgressBarState = ProgressBarState.Idle,
-        val errorQueue: Queue<UIComponent> = Queue(mutableListOf())
+        val errorQueue: Queue<UIComponent> = Queue(listOf())
     ) : ViewState
 
-    sealed class Action : ViewSingleAction {
-        data class ShowError(val message: String) : Action()
-    }
+    sealed interface Action : ViewSingleAction
 }
