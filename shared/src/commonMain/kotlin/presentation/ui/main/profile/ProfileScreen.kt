@@ -1,189 +1,132 @@
 package presentation.ui.main.profile
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import business.core.UIComponent
-import kotlinx.coroutines.flow.Flow
-import org.jetbrains.compose.resources.DrawableResource
+import common.Context
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
-import presentation.component.CircleImage
-import presentation.component.DefaultScreenUI
-import presentation.component.Spacer_12dp
-import presentation.component.Spacer_16dp
-import presentation.component.Spacer_32dp
-import presentation.component.Spacer_8dp
-import presentation.component.noRippleClickable
-import presentation.ui.main.profile.view_model.ProfileEvent
-import presentation.ui.main.profile.view_model.ProfileState
-import org.jetbrains.compose.resources.stringResource
 import rk_shopping.shared.generated.resources.Res
-import rk_shopping.shared.generated.resources.arrow_right
-import rk_shopping.shared.generated.resources.coupon
-import rk_shopping.shared.generated.resources.location2
-import rk_shopping.shared.generated.resources.order
-import rk_shopping.shared.generated.resources.payment
-import rk_shopping.shared.generated.resources.profile2
-import rk_shopping.shared.generated.resources.setting2
-import rk_shopping.shared.generated.resources.warning
-import rk_shopping.shared.generated.resources.profile
-import rk_shopping.shared.generated.resources.payment_methods
-import rk_shopping.shared.generated.resources.edit_profile
-import rk_shopping.shared.generated.resources.my_coupons
-import rk_shopping.shared.generated.resources.manage_address
-import rk_shopping.shared.generated.resources.settings
-import rk_shopping.shared.generated.resources.help_center
-import rk_shopping.shared.generated.resources.my_orders
-
 
 @Composable
-fun ProfileScreen(
-    state: ProfileState,
-    events: (ProfileEvent) -> Unit,
-    errors: Flow<UIComponent>,
-    navigateToAddress: () -> Unit,
-    navigateToEditProfile: () -> Unit,
-    navigateToPaymentMethod: () -> Unit,
-    navigateToMyOrders: () -> Unit,
-    navigateToMyCoupons: () -> Unit,
-    navigateToMyWallet: () -> Unit,
-    navigateToSettings: () -> Unit,
+fun ProfileNav(
+    context: Context,
+    logout: () -> Unit = {}
 ) {
+    ProfileScreen(onLogout = logout)
+}
 
-    DefaultScreenUI(
-        errors = errors,
-        progressBarState = state.progressBarState,
-        networkState = state.networkState,
-        onTryAgain = { events(ProfileEvent.OnRetryNetwork) }
+@OptIn(ExperimentalResourceApi::class)
+@Composable
+fun ProfileScreen(
+    onLogout: () -> Unit = {}
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Column(
-            modifier = Modifier.fillMaxSize().verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Spacer(modifier = Modifier.height(32.dp))
+        
+        // Profile Icon
+        Icon(
+            painter = painterResource(Res.drawable.profile),
+            contentDescription = "Profile",
+            modifier = Modifier
+                .size(100.dp)
+                .clip(CircleShape),
+            tint = MaterialTheme.colorScheme.primary
+        )
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        
+        Text(
+            text = "My Profile",
+            style = MaterialTheme.typography.headlineMedium
+        )
+        
+        Spacer(modifier = Modifier.height(32.dp))
+        
+        // Profile Options
+        ProfileOption(
+            icon = Res.drawable.order,
+            title = "My Orders"
+        )
+        
+        ProfileOption(
+            icon = Res.drawable.shipping,
+            title = "Shipping Address"
+        )
+        
+        ProfileOption(
+            icon = Res.drawable.payment,
+            title = "Payment Methods"
+        )
+        
+        ProfileOption(
+            icon = Res.drawable.coupon,
+            title = "My Coupons"
+        )
+        
+        Spacer(modifier = Modifier.weight(1f))
+        
+        Button(
+            onClick = onLogout,
+            modifier = Modifier.fillMaxWidth()
         ) {
-
-            Spacer_16dp()
-
-            Text(stringResource(Res.string.profile), style = MaterialTheme.typography.titleLarge)
-
-            Spacer_16dp()
-
-            CircleImage(
-                image = state.profile.profileUrl,
-                modifier = Modifier.size(120.dp)
+            Icon(
+                painter = painterResource(Res.drawable.exit),
+                contentDescription = "Logout"
             )
-
-            Spacer_16dp()
-
-            Text(state.profile.name, style = MaterialTheme.typography.headlineMedium)
-
-            Spacer_32dp()
-
-            Column(modifier = Modifier.fillMaxWidth()) {
-                ProfileItemBox(
-                    title = stringResource(Res.string.edit_profile),
-                    image = Res.drawable.profile2
-                ) {
-                    navigateToEditProfile()
-                }
-                ProfileItemBox(
-                    title = stringResource(Res.string.manage_address),
-                    image = Res.drawable.location2
-                ) { navigateToAddress() }
-                ProfileItemBox(
-                    title = stringResource(Res.string.payment_methods),
-                    image = Res.drawable.payment
-                ) {
-                    navigateToPaymentMethod()
-                }
-                ProfileItemBox(
-                    title = stringResource(Res.string.my_orders),
-                    image = Res.drawable.order
-                ) {
-                    navigateToMyOrders()
-                }
-                ProfileItemBox(
-                    title = stringResource(Res.string.my_coupons),
-                    image = Res.drawable.coupon
-                ) {
-                    navigateToMyCoupons()
-                }
-                /*ProfileItemBox(title = "My Wallet", image = "wallet.xml") {
-                    navigateToMyWallet()
-                }*/
-                ProfileItemBox(
-                    title = stringResource(Res.string.settings),
-                    image = Res.drawable.setting2
-                ) {
-                    navigateToSettings()
-                }
-                ProfileItemBox(
-                    title = stringResource(Res.string.help_center),
-                    image = Res.drawable.warning,
-                    isLastItem = true
-                ) {}
-            }
-
+            Spacer(modifier = Modifier.width(8.dp))
+            Text("Logout")
         }
+        
+        Spacer(modifier = Modifier.height(16.dp))
     }
 }
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-private fun ProfileItemBox(
-    title: String,
-    image: DrawableResource,
-    isLastItem: Boolean = false,
-    onClick: () -> Unit
+private fun ProfileOption(
+    icon: String,
+    title: String
 ) {
-
-    Column(
-        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)
-            .noRippleClickable { onClick() }) {
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(vertical = 8.dp),
+        shape = MaterialTheme.shapes.medium,
+        color = MaterialTheme.colorScheme.surface,
+        tonalElevation = 1.dp
+    ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            modifier = Modifier
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically
         ) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Icon(
-                    painterResource(image),
-                    null,
-                    tint = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.size(35.dp)
-                )
-                Spacer_8dp()
-                Text(title, style = MaterialTheme.typography.bodyLarge)
-            }
-
             Icon(
-                painterResource(Res.drawable.arrow_right),
-                null,
-                tint = MaterialTheme.colorScheme.primary.copy(alpha = .7f),
-                modifier = Modifier.size(30.dp)
+                painter = painterResource(icon),
+                contentDescription = title,
+                tint = MaterialTheme.colorScheme.primary
+            )
+            Spacer(modifier = Modifier.width(16.dp))
+            Text(
+                text = title,
+                style = MaterialTheme.typography.bodyLarge
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            Icon(
+                painter = painterResource(Res.drawable.arrow_right),
+                contentDescription = "Navigate",
+                tint = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
-        if (!isLastItem) {
-            Spacer_12dp()
-            HorizontalDivider()
-            Spacer_12dp()
-        }
     }
-
 }

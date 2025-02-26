@@ -2,16 +2,15 @@ package presentation.navigation
 
 import org.jetbrains.compose.resources.DrawableResource
 import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.home
+import rk_shopping.shared.generated.resources.home_border
 import rk_shopping.shared.generated.resources.cart
 import rk_shopping.shared.generated.resources.cart_border
 import rk_shopping.shared.generated.resources.heart2
 import rk_shopping.shared.generated.resources.heart_border2
-import rk_shopping.shared.generated.resources.home
-import rk_shopping.shared.generated.resources.home_border
 import rk_shopping.shared.generated.resources.profile
 import rk_shopping.shared.generated.resources.profile_border
-import rk_shopping.shared.generated.resources.nav_map
-import rk_shopping.shared.generated.resources.pc
+import rk_shopping.shared.generated.resources.shirt
 import rk_shopping.shared.generated.resources.pc_border
 
 sealed class BottomNavigation(
@@ -29,8 +28,8 @@ sealed class BottomNavigation(
 
     data object Products : BottomNavigation(
         route = "Products",
-        title = "Products",
-        selectedIcon = Res.drawable.pc,
+        title = "Shop",
+        selectedIcon = Res.drawable.shirt,
         unSelectedIcon = Res.drawable.pc_border
     )
 
@@ -55,10 +54,24 @@ sealed class BottomNavigation(
         unSelectedIcon = Res.drawable.profile_border
     )
 
-    data object Map : BottomNavigation(
-        route = "Map",
-        title = "Map",
-        selectedIcon = Res.drawable.nav_map,
-        unSelectedIcon = Res.drawable.nav_map
-    )
+    companion object {
+        fun fromRoute(route: String?): BottomNavigation {
+            return when (route) {
+                Home.route -> Home
+                Products.route -> Products
+                Wishlist.route -> Wishlist
+                Cart.route -> Cart
+                Profile.route -> Profile
+                else -> Home
+            }
+        }
+
+        fun bottomNavItems() = listOf(
+            Home,
+            Products,
+            Wishlist,
+            Cart,
+            Profile
+        )
+    }
 }

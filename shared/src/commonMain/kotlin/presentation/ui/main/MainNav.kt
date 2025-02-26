@@ -24,9 +24,6 @@ import presentation.ui.main.cart.CartNav
 import presentation.ui.main.home.HomeNav
 import presentation.ui.main.profile.ProfileNav
 import presentation.ui.main.wishlist.WishlistNav
-import presentation.ui.main.map.MapScreen
-import business.cart.CartManager
-import business.review.ReviewManager
 import java.net.URLEncoder
 import java.net.URLDecoder
 import kotlin.text.Charsets.UTF_8
@@ -38,8 +35,6 @@ fun MainNav(
 ) {
     val navBottomBarController = rememberNavController()
     val productViewModel = remember { ProductViewModel() }
-    val cartManager = remember { CartManager() }
-    val reviewManager = remember { ReviewManager() }
     
     ChangeStatusBarColors(Color.White)
     Scaffold(bottomBar = {
@@ -97,8 +92,6 @@ fun MainNav(
                     
                     SingleProductScreen(
                         product = Product.fromNavArgs(name, price, imageUrl),
-                        cartManager = cartManager,
-                        reviewManager = reviewManager,
                         onBackClick = { navBottomBarController.popBackStack() }
                     )
                 }
@@ -110,9 +103,6 @@ fun MainNav(
                 }
                 composable(route = BottomNavigation.Profile.route) {
                     ProfileNav(context = context, logout = logout)
-                }
-                composable(route = BottomNavigation.Map.route) {
-                    MapScreen(context = context)
                 }
             }
         }
@@ -146,28 +136,20 @@ fun BottomNavigationUI(
             contentColor = MaterialTheme.colorScheme.background,
             tonalElevation = 8.dp
         ) {
-            val items = listOf(
-                BottomNavigation.Home,
-                BottomNavigation.Products,
-                BottomNavigation.Wishlist,
-                BottomNavigation.Cart,
-                BottomNavigation.Profile,
-                BottomNavigation.Map,
-            )
-            items.forEach {
+            BottomNavigation.bottomNavItems().forEach { item ->
                 NavigationBarItem(
-                    label = { Text(text = it.title) },
+                    label = { Text(text = item.title) },
                     colors = DefaultNavigationBarItemTheme(),
-                    selected = it.route == currentRoute,
+                    selected = item.route == currentRoute,
                     icon = {
                         Icon(
-                            painterResource(if (it.route == currentRoute) it.selectedIcon else it.unSelectedIcon),
-                            it.title
+                            painterResource(if (item.route == currentRoute) item.selectedIcon else item.unSelectedIcon),
+                            item.title
                         )
                     },
                     onClick = {
-                        if (currentRoute != it.route) {
-                            navController.navigate(it.route) {
+                        if (currentRoute != item.route) {
+                            navController.navigate(item.route) {
                                 navController.graph.startDestinationRoute?.let { route ->
                                     popUpTo(route) {
                                         saveState = true
