@@ -12,6 +12,8 @@ import rk_shopping.shared.generated.resources.profile
 import rk_shopping.shared.generated.resources.profile_border
 import rk_shopping.shared.generated.resources.location
 import rk_shopping.shared.generated.resources.location2
+import rk_shopping.shared.generated.resources.products
+import rk_shopping.shared.generated.resources.products_border
 
 sealed class BottomNavigation (
     val route: String,
@@ -24,6 +26,12 @@ sealed class BottomNavigation (
         route = "Home", title = "Home",
         selectedIcon = Res.drawable.home,
         unSelectedIcon = Res.drawable.home_border
+    )
+
+   data object Products : BottomNavigation(
+        route = "Products", title = "Products",
+        selectedIcon = Res.drawable.products,
+        unSelectedIcon = Res.drawable.products_border
     )
 
    data object Wishlist : BottomNavigation(
@@ -49,8 +57,4 @@ sealed class BottomNavigation (
         selectedIcon = Res.drawable.location,
         unSelectedIcon = Res.drawable.location2
     )
-
-
-
 }
-

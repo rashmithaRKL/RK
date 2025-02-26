@@ -15,6 +15,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -28,6 +29,8 @@ import common.Context
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import presentation.navigation.BottomNavigation
+import presentation.products.ProductScreen
+import presentation.products.ProductViewModel
 import presentation.theme.DefaultCardColorsTheme
 import presentation.theme.DefaultNavigationBarItemTheme
 import presentation.ui.main.cart.CartNav
@@ -38,9 +41,9 @@ import presentation.ui.main.map.MapScreen
 
 @Composable
 fun MainNav(context: Context, logout: () -> Unit) {
-
-
     val navBottomBarController = rememberNavController()
+    val productViewModel = remember { ProductViewModel() }
+    
     ChangeStatusBarColors(Color.White)
     Scaffold(bottomBar = {
         BottomNavigationUI(navController = navBottomBarController)
@@ -53,6 +56,9 @@ fun MainNav(context: Context, logout: () -> Unit) {
             ) {
                 composable(route = BottomNavigation.Home.route) {
                     HomeNav(logout = logout)
+                }
+                composable(route = BottomNavigation.Products.route) {
+                    ProductScreen(viewModel = productViewModel)
                 }
                 composable(route = BottomNavigation.Wishlist.route) {
                     WishlistNav()
@@ -68,16 +74,13 @@ fun MainNav(context: Context, logout: () -> Unit) {
                 }
             }
         }
-
     }
 }
-
 
 @Composable
 fun BottomNavigationUI(
     navController: NavController,
 ) {
-
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
@@ -95,16 +98,17 @@ fun BottomNavigationUI(
             contentColor = MaterialTheme.colorScheme.background,
             tonalElevation = 8.dp
         ) {
-
             val items = listOf(
                 BottomNavigation.Home,
+                BottomNavigation.Products,
                 BottomNavigation.Wishlist,
                 BottomNavigation.Cart,
                 BottomNavigation.Profile,
                 BottomNavigation.Map,
             )
             items.forEach {
-                NavigationBarItem(label = { Text(text = it.title) },
+                NavigationBarItem(
+                    label = { Text(text = it.title) },
                     colors = DefaultNavigationBarItemTheme(),
                     selected = it.route == currentRoute,
                     icon = {
@@ -125,7 +129,8 @@ fun BottomNavigationUI(
                                 restoreState = true
                             }
                         }
-                    })
+                    }
+                )
             }
         }
     }
