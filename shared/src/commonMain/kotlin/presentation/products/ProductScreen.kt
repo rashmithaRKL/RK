@@ -101,8 +101,8 @@ private fun ProductCard(
                         )
                     }
                     is AsyncImagePainter.State.Error -> {
-                        Image(
-                            painter = painterResource(Res.drawable.default_image_loader),
+                        AsyncImage(
+                            model = Res.drawable.default_image_loader,
                             contentDescription = "Error loading image",
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Crop
