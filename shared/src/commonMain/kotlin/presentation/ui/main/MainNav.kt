@@ -42,6 +42,9 @@ import presentation.ui.main.home.HomeNav
 import presentation.ui.main.profile.ProfileNav
 import presentation.ui.main.wishlist.WishlistNav
 import presentation.ui.main.map.MapScreen
+import java.net.URLEncoder
+import java.net.URLDecoder
+import kotlin.text.Charsets.UTF_8
 
 @Composable
 fun MainNav(context: Context, logout: () -> Unit) {
@@ -65,27 +68,61 @@ fun MainNav(context: Context, logout: () -> Unit) {
                     ProductScreen(
                         viewModel = productViewModel,
                         onProductClick = { product ->
-                            navBottomBarController.navigate(
-                                "single_product/${product.name}/${product.price}/${product.imageUrl}"
-                            )
+                            try {
+                                val encodedName = URLEncoder.encode(product.name, UTF_8.name())
+                                val encodedPrice = URLEncoder.encode(product.price, UTF_8.name())
+                                val encodedImageUrl = URLEncoder.encode(product.imageUrl ?: "", UTF_8.name())
+                                navBottomBarController.navigate(
+                                    "single_product/$encodedName/$encodedPrice/$encodedImageUrl"
+                                )
+                            } catch (e: Exception) {
+                                // Handle navigation error
+                                println("Navigation error: ${e.message}")
+                            }
                         }
                     )
                 }
                 composable(
                     route = "single_product/{name}/{price}/{imageUrl}",
                     arguments = listOf(
-                        navArgument("name") { type = NavType.StringType },
-                        navArgument("price") { type = NavType.StringType },
-                        navArgument("imageUrl") { type = NavType.StringType }
+                        navArgument("name") { 
+                            type = NavType.StringType
+                            nullable = false
+                            defaultValue = "Unknown Product"
+                        },
+                        navArgument("price") { 
+                            type = NavType.StringType
+                            nullable = false
+                            defaultValue = "$0.00"
+                        },
+                        navArgument("imageUrl") { 
+                            type = NavType.StringType
+                            nullable = true
+                        }
                     )
                 ) { backStackEntry ->
-                    val name = backStackEntry.arguments?.getString("name") ?: ""
-                    val price = backStackEntry.arguments?.getString("price") ?: ""
-                    val imageUrl = backStackEntry.arguments?.getString("imageUrl")
-                    SingleProductScreen(
-                        product = Product(name = name, price = price, imageUrl = imageUrl),
-                        onBackClick = { navBottomBarController.popBackStack() }
-                    )
+                    try {
+                        val name = URLDecoder.decode(
+                            backStackEntry.arguments?.getString("name") ?: "Unknown Product", 
+                            UTF_8.name()
+                        )
+                        val price = URLDecoder.decode(
+                            backStackEntry.arguments?.getString("price") ?: "$0.00", 
+                            UTF_8.name()
+                        )
+                        val imageUrl = backStackEntry.arguments?.getString("imageUrl")?.let {
+                            URLDecoder.decode(it, UTF_8.name())
+                        }
+
+                        SingleProductScreen(
+                            product = Product.fromNavArgs(name, price, imageUrl),
+                            onBackClick = { navBottomBarController.popBackStack() }
+                        )
+                    } catch (e: Exception) {
+                        // Handle decoding error
+                        println("Decoding error: ${e.message}")
+                        navBottomBarController.popBackStack()
+                    }
                 }
                 composable(route = BottomNavigation.Wishlist.route) {
                     WishlistNav()
