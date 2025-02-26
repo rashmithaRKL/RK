@@ -42,14 +42,12 @@ import presentation.ui.main.home.HomeNav
 import presentation.ui.main.profile.ProfileNav
 import presentation.ui.main.wishlist.WishlistNav
 import presentation.ui.main.map.MapScreen
-import business.cart.CartManager
-import business.review.ReviewManager
 import java.net.URLEncoder
 import java.net.URLDecoder
 import kotlin.text.Charsets.UTF_8
 
 @Composable
-fun MainNav(context: Context, logout: () -> Unit) {
+fun MainNav(context: Context) {
     val navBottomBarController = rememberNavController()
     val productViewModel = remember { ProductViewModel() }
     val cartManager = remember { CartManager() }
@@ -66,7 +64,14 @@ fun MainNav(context: Context, logout: () -> Unit) {
                 modifier = Modifier.fillMaxSize()
             ) {
                 composable(route = BottomNavigation.Home.route) {
-                    HomeNav(logout = logout)
+                    HomeNav(
+                        onNavigateToNotifications = {
+                            // Handle notifications navigation
+                        },
+                        onNavigateToCategories = {
+                            navBottomBarController.navigate(BottomNavigation.Products.route)
+                        }
+                    )
                 }
                 composable(route = BottomNavigation.Products.route) {
                     ProductScreen(
@@ -116,7 +121,7 @@ fun MainNav(context: Context, logout: () -> Unit) {
                     CartNav(context = context)
                 }
                 composable(route = BottomNavigation.Profile.route) {
-                    ProfileNav(context = context, logout = logout)
+                    ProfileNav(context = context)
                 }
                 composable(route = BottomNavigation.Map.route) {
                     MapScreen(context = context)

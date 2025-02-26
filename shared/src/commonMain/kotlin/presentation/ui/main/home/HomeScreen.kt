@@ -77,7 +77,7 @@ fun HomeScreen(
         Spacer(modifier = Modifier.height(16.dp))
 
         // Search Bar
-        OutlinedTextField(
+        TextField(
             value = "",
             onValueChange = {},
             modifier = Modifier
@@ -92,9 +92,11 @@ fun HomeScreen(
                 )
             },
             shape = RoundedCornerShape(8.dp),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
-                unfocusedBorderColor = Color.LightGray,
-                focusedBorderColor = Color.Red
+            colors = TextFieldDefaults.colors(
+                unfocusedContainerColor = MaterialTheme.colorScheme.surface,
+                focusedContainerColor = MaterialTheme.colorScheme.surface,
+                unfocusedIndicatorColor = Color.LightGray,
+                focusedIndicatorColor = Color.Red
             )
         )
 
@@ -193,13 +195,13 @@ private fun CategoryItem(
 
 data class Category(
     val name: String,
-    val icon: String
+    val icon: DrawableResource
 )
 
 private val categories = listOf(
-    Category("Computer", Res.drawable.category_computer.toString()),
-    Category("Electronics", Res.drawable.category_electronics.toString()),
-    Category("Arts & Crafts", Res.drawable.category_arts.toString()),
-    Category("Automotive", Res.drawable.category_automotive.toString()),
-    Category("Baby", Res.drawable.category_baby.toString())
+    Category("Computer", Res.drawable.category_computer),
+    Category("Electronics", Res.drawable.category_electronics),
+    Category("Arts & Crafts", Res.drawable.category_arts),
+    Category("Automotive", Res.drawable.category_automotive),
+    Category("Baby", Res.drawable.category_baby)
 )
