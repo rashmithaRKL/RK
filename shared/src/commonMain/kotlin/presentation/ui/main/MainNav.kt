@@ -25,6 +25,8 @@ import presentation.ui.main.home.HomeNav
 import presentation.ui.main.profile.ProfileNav
 import presentation.ui.main.wishlist.WishlistNav
 import presentation.ui.main.map.MapScreen
+import business.cart.CartManager
+import business.review.ReviewManager
 import java.net.URLEncoder
 import java.net.URLDecoder
 import kotlin.text.Charsets.UTF_8
@@ -36,6 +38,8 @@ fun MainNav(
 ) {
     val navBottomBarController = rememberNavController()
     val productViewModel = remember { ProductViewModel() }
+    val cartManager = remember { CartManager() }
+    val reviewManager = remember { ReviewManager() }
     
     ChangeStatusBarColors(Color.White)
     Scaffold(bottomBar = {
@@ -93,6 +97,8 @@ fun MainNav(
                     
                     SingleProductScreen(
                         product = Product.fromNavArgs(name, price, imageUrl),
+                        cartManager = cartManager,
+                        reviewManager = reviewManager,
                         onBackClick = { navBottomBarController.popBackStack() }
                     )
                 }
