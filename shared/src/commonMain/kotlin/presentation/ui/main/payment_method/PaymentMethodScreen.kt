@@ -35,16 +35,17 @@ import presentation.theme.BorderColor
 import presentation.theme.DefaultCardColorsTheme
 import presentation.ui.main.payment_method.view_model.PaymentMethodEvent
 import presentation.ui.main.payment_method.view_model.PaymentMethodState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.apple
-import shoping_by_kmp.shared.generated.resources.apple_pay
-import shoping_by_kmp.shared.generated.resources.cash
-import shoping_by_kmp.shared.generated.resources.google
-import shoping_by_kmp.shared.generated.resources.google_pay
-import shoping_by_kmp.shared.generated.resources.more_payment_options
-import shoping_by_kmp.shared.generated.resources.payment_method
-import shoping_by_kmp.shared.generated.resources.paypal
-import shoping_by_kmp.shared.generated.resources.wallet
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.apple
+import rk_shopping.shared.generated.resources.apple_pay
+import rk_shopping.shared.generated.resources.cash
+import rk_shopping.shared.generated.resources.google
+import rk_shopping.shared.generated.resources.google_pay
+import rk_shopping.shared.generated.resources.more_payment_options
+import rk_shopping.shared.generated.resources.payment_method
+import rk_shopping.shared.generated.resources.paypal
+import rk_shopping.shared.generated.resources.wallet
+
 
 
 @Composable

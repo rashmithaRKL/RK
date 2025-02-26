@@ -23,9 +23,9 @@ import presentation.ui.main.comment.view_model.CommentEvent
 import presentation.ui.main.comment.view_model.CommentState
 import presentation.ui.main.detail.CommentBox
 import org.jetbrains.compose.resources.stringResource
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.comments
-import shoping_by_kmp.shared.generated.resources.no_comments
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.comments
+import rk_shopping.shared.generated.resources.no_comments
 
 
 @Composable

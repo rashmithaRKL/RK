@@ -23,9 +23,9 @@ import presentation.component.IconButton
 import presentation.ui.main.add_address.view_model.AddAddressAction
 import presentation.ui.main.add_address.view_model.AddAddressEvent
 import presentation.ui.main.add_address.view_model.AddAddressState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.add_new_address
-import shoping_by_kmp.shared.generated.resources.confirm
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.add_new_address
+import rk_shopping.shared.generated.resources.confirm
 
 
 @Composable

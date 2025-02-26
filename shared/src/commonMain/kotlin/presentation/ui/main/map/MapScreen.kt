@@ -22,8 +22,8 @@ import common.MapComponent
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.koinInject
 import presentation.ui.main.map.view_model.MapViewModel
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.location
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.location
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

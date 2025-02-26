@@ -36,14 +36,14 @@ import presentation.theme.DefaultTextFieldTheme
 import presentation.ui.main.add_address.view_model.AddAddressAction
 import presentation.ui.main.add_address.view_model.AddAddressEvent
 import presentation.ui.main.add_address.view_model.AddAddressState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.add_new_address
-import shoping_by_kmp.shared.generated.resources.country
-import shoping_by_kmp.shared.generated.resources.submit
-import shoping_by_kmp.shared.generated.resources.state
-import shoping_by_kmp.shared.generated.resources.city
-import shoping_by_kmp.shared.generated.resources.address_dot
-import shoping_by_kmp.shared.generated.resources.zip_code
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.add_new_address
+import rk_shopping.shared.generated.resources.country
+import rk_shopping.shared.generated.resources.submit
+import rk_shopping.shared.generated.resources.state
+import rk_shopping.shared.generated.resources.city
+import rk_shopping.shared.generated.resources.address_dot
+import rk_shopping.shared.generated.resources.zip_code
 
 
 @Composable

@@ -1,4 +1,4 @@
-package com.razzaghi.shopingbykmp
+package com.razzaghi.rkshopping
 
 import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog

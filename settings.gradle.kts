@@ -30,6 +30,6 @@ dependencyResolutionManagement {
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
-rootProject.name = "Shoping_By_KMP"
+rootProject.name = "RK_Shopping"
 include(":androidApp")
 include(":shared")

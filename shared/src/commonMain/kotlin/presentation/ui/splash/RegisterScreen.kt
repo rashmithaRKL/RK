@@ -49,23 +49,24 @@ import presentation.theme.DefaultCheckBoxTheme
 import presentation.theme.DefaultTextFieldTheme
 import presentation.ui.splash.view_model.LoginEvent
 import presentation.ui.splash.view_model.LoginState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.agree_with
-import shoping_by_kmp.shared.generated.resources.already_have_account
-import shoping_by_kmp.shared.generated.resources.apple
-import shoping_by_kmp.shared.generated.resources.create_account
-import shoping_by_kmp.shared.generated.resources.email
-import shoping_by_kmp.shared.generated.resources.enter_valid_email
-import shoping_by_kmp.shared.generated.resources.enter_valid_password
-import shoping_by_kmp.shared.generated.resources.facebook
-import shoping_by_kmp.shared.generated.resources.google
-import shoping_by_kmp.shared.generated.resources.name
-import shoping_by_kmp.shared.generated.resources.or_sign_up_with
-import shoping_by_kmp.shared.generated.resources.password
-import shoping_by_kmp.shared.generated.resources.register_title
-import shoping_by_kmp.shared.generated.resources.sign_in
-import shoping_by_kmp.shared.generated.resources.sign_up
-import shoping_by_kmp.shared.generated.resources.terms_condition
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.agree_with
+import rk_shopping.shared.generated.resources.already_have_account
+import rk_shopping.shared.generated.resources.apple
+import rk_shopping.shared.generated.resources.create_account
+import rk_shopping.shared.generated.resources.email
+import rk_shopping.shared.generated.resources.enter_valid_email
+import rk_shopping.shared.generated.resources.enter_valid_password
+import rk_shopping.shared.generated.resources.facebook
+import rk_shopping.shared.generated.resources.google
+import rk_shopping.shared.generated.resources.name
+import rk_shopping.shared.generated.resources.or_sign_up_with
+import rk_shopping.shared.generated.resources.password
+import rk_shopping.shared.generated.resources.register_title
+import rk_shopping.shared.generated.resources.sign_in
+import rk_shopping.shared.generated.resources.sign_up
+import rk_shopping.shared.generated.resources.terms_condition
+
 
 @Composable
 fun RegisterScreen(

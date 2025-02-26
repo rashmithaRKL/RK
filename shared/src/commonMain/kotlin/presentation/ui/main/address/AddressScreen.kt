@@ -37,13 +37,13 @@ import presentation.component.TextWithIcon
 import presentation.theme.BorderColor
 import presentation.ui.main.address.view_model.AddressEvent
 import presentation.ui.main.address.view_model.AddressState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.address
-import shoping_by_kmp.shared.generated.resources.delete
-import shoping_by_kmp.shared.generated.resources.earth
-import shoping_by_kmp.shared.generated.resources.location2
-import shoping_by_kmp.shared.generated.resources.mail
-import shoping_by_kmp.shared.generated.resources.no_address
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.address
+import rk_shopping.shared.generated.resources.delete
+import rk_shopping.shared.generated.resources.earth
+import rk_shopping.shared.generated.resources.location2
+import rk_shopping.shared.generated.resources.mail
+import rk_shopping.shared.generated.resources.no_address
 
 
 @Composable

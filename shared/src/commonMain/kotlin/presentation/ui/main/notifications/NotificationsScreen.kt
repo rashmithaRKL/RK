@@ -35,11 +35,11 @@ import presentation.theme.BorderColor
 import presentation.theme.grey_050
 import presentation.ui.main.notifications.view_model.NotificationsEvent
 import presentation.ui.main.notifications.view_model.NotificationsState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.bell
-import shoping_by_kmp.shared.generated.resources.mark_all_as_read
-import shoping_by_kmp.shared.generated.resources.nothing_yet
-import shoping_by_kmp.shared.generated.resources.notifications
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.bell
+import rk_shopping.shared.generated.resources.mark_all_as_read
+import rk_shopping.shared.generated.resources.nothing_yet
+import rk_shopping.shared.generated.resources.notifications
 
 
 @Composable

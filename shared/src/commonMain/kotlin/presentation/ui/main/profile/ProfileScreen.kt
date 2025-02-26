@@ -31,24 +31,25 @@ import presentation.component.Spacer_8dp
 import presentation.component.noRippleClickable
 import presentation.ui.main.profile.view_model.ProfileEvent
 import presentation.ui.main.profile.view_model.ProfileState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.arrow_right
-import shoping_by_kmp.shared.generated.resources.coupon
-import shoping_by_kmp.shared.generated.resources.location2
-import shoping_by_kmp.shared.generated.resources.order
-import shoping_by_kmp.shared.generated.resources.payment
-import shoping_by_kmp.shared.generated.resources.profile2
-import shoping_by_kmp.shared.generated.resources.setting2
-import shoping_by_kmp.shared.generated.resources.warning
 import org.jetbrains.compose.resources.stringResource
-import shoping_by_kmp.shared.generated.resources.profile
-import shoping_by_kmp.shared.generated.resources.payment_methods
-import shoping_by_kmp.shared.generated.resources.edit_profile
-import shoping_by_kmp.shared.generated.resources.my_coupons
-import shoping_by_kmp.shared.generated.resources.manage_address
-import shoping_by_kmp.shared.generated.resources.settings
-import shoping_by_kmp.shared.generated.resources.help_center
-import shoping_by_kmp.shared.generated.resources.my_orders
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.arrow_right
+import rk_shopping.shared.generated.resources.coupon
+import rk_shopping.shared.generated.resources.location2
+import rk_shopping.shared.generated.resources.order
+import rk_shopping.shared.generated.resources.payment
+import rk_shopping.shared.generated.resources.profile2
+import rk_shopping.shared.generated.resources.setting2
+import rk_shopping.shared.generated.resources.warning
+import rk_shopping.shared.generated.resources.profile
+import rk_shopping.shared.generated.resources.payment_methods
+import rk_shopping.shared.generated.resources.edit_profile
+import rk_shopping.shared.generated.resources.my_coupons
+import rk_shopping.shared.generated.resources.manage_address
+import rk_shopping.shared.generated.resources.settings
+import rk_shopping.shared.generated.resources.help_center
+import rk_shopping.shared.generated.resources.my_orders
+
 
 @Composable
 fun ProfileScreen(

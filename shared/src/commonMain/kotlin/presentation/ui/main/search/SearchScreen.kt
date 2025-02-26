@@ -54,12 +54,13 @@ import presentation.component.rememberCustomImagePainter
 import presentation.theme.TextFieldWithTransparentTheme
 import presentation.ui.main.search.view_model.SearchEvent
 import presentation.ui.main.search.view_model.SearchState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.close
-import shoping_by_kmp.shared.generated.resources.filter
-import shoping_by_kmp.shared.generated.resources.search
-import shoping_by_kmp.shared.generated.resources.search_with_dots
-import shoping_by_kmp.shared.generated.resources.sort
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.close
+import rk_shopping.shared.generated.resources.filter
+import rk_shopping.shared.generated.resources.search
+import rk_shopping.shared.generated.resources.search_with_dots
+import rk_shopping.shared.generated.resources.sort
+
 
 
 @Composable

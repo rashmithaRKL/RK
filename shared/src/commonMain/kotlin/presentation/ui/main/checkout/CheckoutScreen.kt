@@ -50,17 +50,17 @@ import presentation.ui.main.checkout.view_model.CheckoutAction
 import presentation.ui.main.checkout.view_model.CheckoutEvent
 import presentation.ui.main.checkout.view_model.CheckoutState
 import presentation.ui.splash.view_model.LoginAction
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.change
-import shoping_by_kmp.shared.generated.resources.checkout
-import shoping_by_kmp.shared.generated.resources.choose_shipping_type
-import shoping_by_kmp.shared.generated.resources.home
-import shoping_by_kmp.shared.generated.resources.location2
-import shoping_by_kmp.shared.generated.resources.shipping
-import shoping_by_kmp.shared.generated.resources.shipping_address
-import shoping_by_kmp.shared.generated.resources.shipping_cost
-import shoping_by_kmp.shared.generated.resources.submit
-import shoping_by_kmp.shared.generated.resources.total_cost
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.change
+import rk_shopping.shared.generated.resources.checkout
+import rk_shopping.shared.generated.resources.choose_shipping_type
+import rk_shopping.shared.generated.resources.home
+import rk_shopping.shared.generated.resources.location2
+import rk_shopping.shared.generated.resources.shipping
+import rk_shopping.shared.generated.resources.shipping_address
+import rk_shopping.shared.generated.resources.shipping_cost
+import rk_shopping.shared.generated.resources.submit
+import rk_shopping.shared.generated.resources.total_cost
 
 
 @Composable

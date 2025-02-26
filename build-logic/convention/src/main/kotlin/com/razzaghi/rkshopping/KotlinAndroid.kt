@@ -1,4 +1,4 @@
-package com.razzaghi.shopingbykmp
+package com.razzaghi.rkshopping
 
 
 import com.android.build.api.dsl.CommonExtension
@@ -16,7 +16,7 @@ internal fun Project.configureKotlinAndroid(
 ) {
     commonExtension.apply {
         compileSdk =  libs.findVersion("android.compileSdk").get().toString().toInt()
-        namespace ="com.razzaghi.shopingbykmp.android"
+        namespace ="com.razzaghi.rkshopping.android"
 
         defaultConfig {
             minSdk = libs.findVersion("android.minSdk").get().toString().toInt()

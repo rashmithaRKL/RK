@@ -1,17 +1,17 @@
 package presentation.navigation
 
 import org.jetbrains.compose.resources.DrawableResource
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.cart
-import shoping_by_kmp.shared.generated.resources.cart_border
-import shoping_by_kmp.shared.generated.resources.heart2
-import shoping_by_kmp.shared.generated.resources.heart_border2
-import shoping_by_kmp.shared.generated.resources.home
-import shoping_by_kmp.shared.generated.resources.home_border
-import shoping_by_kmp.shared.generated.resources.profile
-import shoping_by_kmp.shared.generated.resources.profile_border
-import shoping_by_kmp.shared.generated.resources.location
-import shoping_by_kmp.shared.generated.resources.location2
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.cart
+import rk_shopping.shared.generated.resources.cart_border
+import rk_shopping.shared.generated.resources.heart2
+import rk_shopping.shared.generated.resources.heart_border2
+import rk_shopping.shared.generated.resources.home
+import rk_shopping.shared.generated.resources.home_border
+import rk_shopping.shared.generated.resources.profile
+import rk_shopping.shared.generated.resources.profile_border
+import rk_shopping.shared.generated.resources.location
+import rk_shopping.shared.generated.resources.location2
 
 sealed class BottomNavigation (
     val route: String,

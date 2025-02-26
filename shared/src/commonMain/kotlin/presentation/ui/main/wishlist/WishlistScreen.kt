@@ -29,8 +29,8 @@ import presentation.theme.BorderColor
 import presentation.ui.main.wishlist.view_model.WishlistEvent
 import presentation.ui.main.wishlist.view_model.WishlistState
 import org.jetbrains.compose.resources.stringResource
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.wishlist_is_empty
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.wishlist_is_empty
 
 @Composable
 fun WishlistScreen(

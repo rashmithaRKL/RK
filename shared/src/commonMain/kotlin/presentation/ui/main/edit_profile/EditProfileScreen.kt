@@ -49,17 +49,17 @@ import presentation.component.Spacer_8dp
 import presentation.theme.DefaultTextFieldTheme
 import presentation.ui.main.edit_profile.view_model.EditProfileEvent
 import presentation.ui.main.edit_profile.view_model.EditProfileState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.age
-import shoping_by_kmp.shared.generated.resources.cancel
-import shoping_by_kmp.shared.generated.resources.edit_profile
-import shoping_by_kmp.shared.generated.resources.email
-import shoping_by_kmp.shared.generated.resources.name
-import shoping_by_kmp.shared.generated.resources.permission_required_desc
-import shoping_by_kmp.shared.generated.resources.permission_required_title
-import shoping_by_kmp.shared.generated.resources.select
-import shoping_by_kmp.shared.generated.resources.settings
-import shoping_by_kmp.shared.generated.resources.submit
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.age
+import rk_shopping.shared.generated.resources.cancel
+import rk_shopping.shared.generated.resources.edit_profile
+import rk_shopping.shared.generated.resources.email
+import rk_shopping.shared.generated.resources.name
+import rk_shopping.shared.generated.resources.permission_required_desc
+import rk_shopping.shared.generated.resources.permission_required_title
+import rk_shopping.shared.generated.resources.select
+import rk_shopping.shared.generated.resources.settings
+import rk_shopping.shared.generated.resources.submit
 
 
 @Composable

@@ -59,10 +59,10 @@ import presentation.theme.BorderColor
 import presentation.theme.DefaultCardColorsTheme
 import presentation.ui.main.cart.view_model.CartEvent
 import presentation.ui.main.cart.view_model.CartState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.basket_is_empty
-import shoping_by_kmp.shared.generated.resources.proceed_to_checkout
-import shoping_by_kmp.shared.generated.resources.total_cost
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.basket_is_empty
+import rk_shopping.shared.generated.resources.proceed_to_checkout
+import rk_shopping.shared.generated.resources.total_cost
 
 
 @Composable

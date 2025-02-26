@@ -37,12 +37,12 @@ import presentation.theme.BorderColor
 import presentation.theme.grey_050
 import presentation.ui.main.my_coupons.view_model.MyCouponsEvent
 import presentation.ui.main.my_coupons.view_model.MyCouponsState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.best_offer_for_you
-import shoping_by_kmp.shared.generated.resources.copy_code
-import shoping_by_kmp.shared.generated.resources.get_off
-import shoping_by_kmp.shared.generated.resources.my_coupons
-import shoping_by_kmp.shared.generated.resources.offer
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.best_offer_for_you
+import rk_shopping.shared.generated.resources.copy_code
+import rk_shopping.shared.generated.resources.get_off
+import rk_shopping.shared.generated.resources.my_coupons
+import rk_shopping.shared.generated.resources.offer
 
 
 @Composable

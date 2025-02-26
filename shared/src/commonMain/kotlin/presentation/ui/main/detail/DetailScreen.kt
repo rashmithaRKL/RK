@@ -59,13 +59,13 @@ import presentation.ui.main.detail.view_model.DetailEvent
 import presentation.ui.main.detail.view_model.DetailState
 import presentation.util.convertDate
 import org.jetbrains.compose.resources.stringResource
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.product_details
-import shoping_by_kmp.shared.generated.resources.read_some_comments
-import shoping_by_kmp.shared.generated.resources.total_price
-import shoping_by_kmp.shared.generated.resources.add_to_cart
-import shoping_by_kmp.shared.generated.resources.more
-import shoping_by_kmp.shared.generated.resources.no_comments
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.product_details
+import rk_shopping.shared.generated.resources.read_some_comments
+import rk_shopping.shared.generated.resources.total_price
+import rk_shopping.shared.generated.resources.add_to_cart
+import rk_shopping.shared.generated.resources.more
+import rk_shopping.shared.generated.resources.no_comments
 
 
 @Composable

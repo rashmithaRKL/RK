@@ -67,17 +67,18 @@ import presentation.theme.DefaultCardColorsTheme
 import presentation.theme.PagerDotColor
 import presentation.ui.main.home.view_model.HomeEvent
 import presentation.ui.main.home.view_model.HomeState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.bell
-import shoping_by_kmp.shared.generated.resources.category
-import shoping_by_kmp.shared.generated.resources.flash_sale
-import shoping_by_kmp.shared.generated.resources.location
-import shoping_by_kmp.shared.generated.resources.most_sale
-import shoping_by_kmp.shared.generated.resources.newest_products
-import shoping_by_kmp.shared.generated.resources.search
-import shoping_by_kmp.shared.generated.resources.see_all
-import shoping_by_kmp.shared.generated.resources.setting
-import shoping_by_kmp.shared.generated.resources.special_for_you
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.bell
+import rk_shopping.shared.generated.resources.category
+import rk_shopping.shared.generated.resources.flash_sale
+import rk_shopping.shared.generated.resources.location
+import rk_shopping.shared.generated.resources.most_sale
+import rk_shopping.shared.generated.resources.newest_products
+import rk_shopping.shared.generated.resources.search
+import rk_shopping.shared.generated.resources.see_all
+import rk_shopping.shared.generated.resources.setting
+import rk_shopping.shared.generated.resources.special_for_you
+
 
 @Composable
 fun HomeScreen(

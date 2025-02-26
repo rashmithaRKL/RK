@@ -38,8 +38,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.no_wifi
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.no_wifi
 
 
 @Composable

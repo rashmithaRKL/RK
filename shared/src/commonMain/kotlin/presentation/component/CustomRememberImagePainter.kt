@@ -6,8 +6,8 @@ import coil3.ImageLoader
 import coil3.compose.rememberAsyncImagePainter
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.default_image_loader
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.default_image_loader
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable

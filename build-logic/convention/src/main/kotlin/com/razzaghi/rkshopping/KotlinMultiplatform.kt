@@ -1,6 +1,6 @@
-package com.razzaghi.shopingbykmp
+package com.razzaghi.rkshopping
 
-import com.razzaghi.shopingbykmp.libs
+import com.razzaghi.rkshopping.libs
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType

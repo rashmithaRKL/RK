@@ -28,9 +28,9 @@ kotlin {
 }
 android {
     compileSdk = libs.versions.android.compileSdk.get().toInt()
-    namespace = "com.razzaghi.shopingbykmp.android"
+    namespace = "com.razzaghi.rkshopping.android"
     defaultConfig {
-        applicationId = "com.razzaghi.shopingbykmp.android"
+        applicationId = "com.razzaghi.rkshopping.android"
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = libs.versions.android.version.code.get().toInt()

@@ -19,13 +19,14 @@ import presentation.component.MultiStateAnimationCircleFilledCanvas
 import presentation.component.Spacer_32dp
 import presentation.theme.grey_700
 import presentation.theme.splashBackground
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.discover
-import shoping_by_kmp.shared.generated.resources.enjoy
-import shoping_by_kmp.shared.generated.resources.getting_start
-import shoping_by_kmp.shared.generated.resources.live_your_perfect
-import shoping_by_kmp.shared.generated.resources.shop
-import shoping_by_kmp.shared.generated.resources.splash_title
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.discover
+import rk_shopping.shared.generated.resources.enjoy
+import rk_shopping.shared.generated.resources.getting_start
+import rk_shopping.shared.generated.resources.live_your_perfect
+import rk_shopping.shared.generated.resources.shop
+import rk_shopping.shared.generated.resources.splash_title
+
 
 @Composable
 internal fun SplashScreen() {

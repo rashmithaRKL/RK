@@ -31,8 +31,8 @@ import presentation.theme.BorderColor
 import presentation.ui.main.checkout.view_model.CheckoutEvent
 import presentation.ui.main.checkout.view_model.CheckoutState
 import presentation.ui.main.checkout.view_model.shippingType_global
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.shipping
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.shipping
 
 
 @OptIn(ExperimentalMaterial3Api::class)

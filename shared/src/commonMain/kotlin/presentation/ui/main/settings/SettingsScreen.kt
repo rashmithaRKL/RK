@@ -30,11 +30,12 @@ import presentation.theme.BorderColor
 import presentation.ui.main.settings.view_model.SettingsAction
 import presentation.ui.main.settings.view_model.SettingsEvent
 import presentation.ui.main.settings.view_model.SettingsState
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.arrow_right
-import shoping_by_kmp.shared.generated.resources.exit
-import shoping_by_kmp.shared.generated.resources.logout
-import shoping_by_kmp.shared.generated.resources.setting
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.arrow_right
+import rk_shopping.shared.generated.resources.exit
+import rk_shopping.shared.generated.resources.logout
+import rk_shopping.shared.generated.resources.setting
+
 
 
 @Composable

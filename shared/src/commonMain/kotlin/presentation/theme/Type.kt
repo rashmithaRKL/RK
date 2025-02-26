@@ -8,17 +8,17 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.Font
-import shoping_by_kmp.shared.generated.resources.*
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.lato_black_italic
-import shoping_by_kmp.shared.generated.resources.lato_bold
-import shoping_by_kmp.shared.generated.resources.lato_bold_italic
-import shoping_by_kmp.shared.generated.resources.lato_italic
-import shoping_by_kmp.shared.generated.resources.lato_light
-import shoping_by_kmp.shared.generated.resources.lato_light_italic
-import shoping_by_kmp.shared.generated.resources.lato_regular
-import shoping_by_kmp.shared.generated.resources.lato_thin
-import shoping_by_kmp.shared.generated.resources.lato_thin_italic
+import rk_shopping.shared.generated.resources.*
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.lato_black_italic
+import rk_shopping.shared.generated.resources.lato_bold
+import rk_shopping.shared.generated.resources.lato_bold_italic
+import rk_shopping.shared.generated.resources.lato_italic
+import rk_shopping.shared.generated.resources.lato_light
+import rk_shopping.shared.generated.resources.lato_light_italic
+import rk_shopping.shared.generated.resources.lato_regular
+import rk_shopping.shared.generated.resources.lato_thin
+import rk_shopping.shared.generated.resources.lato_thin_italic
 
 
 @Composable

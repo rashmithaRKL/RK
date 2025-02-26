@@ -59,18 +59,19 @@ import presentation.theme.BorderColor
 import presentation.ui.main.my_orders.view_model.MyOrdersEvent
 import presentation.ui.main.my_orders.view_model.MyOrdersState
 import presentation.util.convertDate
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.active
-import shoping_by_kmp.shared.generated.resources.address
-import shoping_by_kmp.shared.generated.resources.amount
-import shoping_by_kmp.shared.generated.resources.arrow_down
-import shoping_by_kmp.shared.generated.resources.delivery_cost
-import shoping_by_kmp.shared.generated.resources.delivery_type
-import shoping_by_kmp.shared.generated.resources.failed
-import shoping_by_kmp.shared.generated.resources.my_orders
-import shoping_by_kmp.shared.generated.resources.nothing_yet
-import shoping_by_kmp.shared.generated.resources.promo_code
-import shoping_by_kmp.shared.generated.resources.success
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.active
+import rk_shopping.shared.generated.resources.address
+import rk_shopping.shared.generated.resources.amount
+import rk_shopping.shared.generated.resources.arrow_down
+import rk_shopping.shared.generated.resources.delivery_cost
+import rk_shopping.shared.generated.resources.delivery_type
+import rk_shopping.shared.generated.resources.failed
+import rk_shopping.shared.generated.resources.my_orders
+import rk_shopping.shared.generated.resources.nothing_yet
+import rk_shopping.shared.generated.resources.promo_code
+import rk_shopping.shared.generated.resources.success
+
 
 
 @Composable

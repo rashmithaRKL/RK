@@ -1,11 +1,11 @@
-import com.razzaghi.shopingbykmp.libs
+import com.razzaghi.rkshopping.libs
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.compose.ComposeExtension
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
-import com.razzaghi.shopingbykmp.configureKotlinAndroid
+import com.razzaghi.rkshopping.configureKotlinAndroid
 import com.android.build.api.dsl.LibraryExtension
 
 

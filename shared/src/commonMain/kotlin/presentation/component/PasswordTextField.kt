@@ -19,9 +19,9 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import presentation.theme.DefaultTextFieldTheme
 import presentation.theme.IconColorGrey
-import shoping_by_kmp.shared.generated.resources.Res
-import shoping_by_kmp.shared.generated.resources.ic_password_hide
-import shoping_by_kmp.shared.generated.resources.ic_password_show
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.ic_password_hide
+import rk_shopping.shared.generated.resources.ic_password_show
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
