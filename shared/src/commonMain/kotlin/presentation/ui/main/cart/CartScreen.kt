@@ -20,7 +20,7 @@ fun CartScreen() {
         verticalArrangement = Arrangement.Center
     ) {
         Icon(
-            painter = painterResource(Res.drawable.cart),
+            painter = painterResource(Res.drawable.cart_border),
             contentDescription = "Empty Cart",
             modifier = Modifier.size(64.dp),
             tint = MaterialTheme.colorScheme.primary
