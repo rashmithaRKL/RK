@@ -10,8 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.ui.res.painterResource
 
 @Composable
 fun ProductComparisonScreen(product1: Product, product2: Product) {
@@ -68,21 +67,12 @@ fun ProductCard(product: Product) {
                     .fillMaxWidth()
                     .height(100.dp),
                 contentScale = ContentScale.Fit,
-                error = ColorBox(color = MaterialTheme.colorScheme.errorContainer),
-                placeholder = ColorBox(color = MaterialTheme.colorScheme.surfaceVariant)
+                error = painterResource(com.razzaghi.rkshopping.android.R.drawable.default_image_loader),
+                placeholder = painterResource(com.razzaghi.rkshopping.android.R.drawable.default_image_loader)
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(product.name, style = MaterialTheme.typography.titleMedium)
             Text("Price: ${product.price}", style = MaterialTheme.typography.bodyMedium)
         }
     }
-}
-
-@Composable
-private fun ColorBox(color: androidx.compose.ui.graphics.Color) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(color)
-    )
 }
