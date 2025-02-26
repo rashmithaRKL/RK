@@ -19,9 +19,10 @@ fun WishlistScreen() {
         verticalArrangement = Arrangement.Center
     ) {
         Icon(
-            painter = painterResource(Res.drawable.heart_border2),
+            painter = painterResource(Res.drawable.heart2),
             contentDescription = "Wishlist",
-            modifier = Modifier.size(64.dp)
+            modifier = Modifier.size(64.dp),
+            tint = MaterialTheme.colorScheme.primary
         )
         Spacer(modifier = Modifier.height(16.dp))
         Text(

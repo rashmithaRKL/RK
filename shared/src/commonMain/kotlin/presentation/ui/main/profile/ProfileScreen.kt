@@ -10,6 +10,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
 import common.Context
 import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import rk_shopping.shared.generated.resources.Res
 
@@ -28,7 +29,7 @@ fun ProfileScreen(
         
         // Profile Icon
         Icon(
-            painter = painterResource(Res.drawable.profile2),
+            painter = painterResource(Res.drawable.profile),
             contentDescription = "Profile",
             modifier = Modifier
                 .size(100.dp)
@@ -52,12 +53,12 @@ fun ProfileScreen(
         )
         
         ProfileOption(
-            icon = Res.drawable.location,
+            icon = Res.drawable.location2,
             title = "Shipping Address"
         )
         
         ProfileOption(
-            icon = Res.drawable.wallet,
+            icon = Res.drawable.payment,
             title = "Payment Methods"
         )
         
@@ -73,7 +74,7 @@ fun ProfileScreen(
             modifier = Modifier.fillMaxWidth()
         ) {
             Icon(
-                painter = painterResource(Res.drawable.close),
+                painter = painterResource(Res.drawable.exit),
                 contentDescription = "Logout"
             )
             Spacer(modifier = Modifier.width(8.dp))
@@ -87,7 +88,7 @@ fun ProfileScreen(
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 private fun ProfileOption(
-    icon: String,
+    icon: DrawableResource,
     title: String
 ) {
     Surface(
