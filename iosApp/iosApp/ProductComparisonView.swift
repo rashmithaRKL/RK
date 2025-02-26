@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 
 struct ProductComparisonView: View {
     var product1: Product
@@ -35,17 +36,31 @@ struct ProductCard: View {
 
     var body: some View {
         VStack {
+            if let imageUrl = product.imageUrl {
+                KFImage(URL(string: imageUrl))
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                    .cornerRadius(8)
+            } else {
+                Rectangle()
+                    .fill(Color.gray.opacity(0.2))
+                    .frame(height: 100)
+                    .cornerRadius(8)
+            }
             Text(product.name)
                 .font(.headline)
-            // Load product image here
             Text("Price: \(product.price)")
         }
         .padding()
-        .border(Color.gray, width: 1)
+        .background(Color.white)
+        .cornerRadius(12)
+        .shadow(radius: 4)
     }
 }
 
 struct Product {
     var name: String
     var price: String
+    var imageUrl: String?
 }

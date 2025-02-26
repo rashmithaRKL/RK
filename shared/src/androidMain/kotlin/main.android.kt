@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.compose.runtime.Composable
 import presentation.App
 import presentation.productComparison.ProductComparisonScreen
+import presentation.productComparison.Product
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController

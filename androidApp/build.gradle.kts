@@ -20,7 +20,8 @@ kotlin {
     sourceSets {
         val androidMain by getting {
             dependencies {
-                implementation(project(":shared"))
+implementation(project(":shared"))
+    implementation("io.coil-kt:coil-compose:2.2.2") // Add Coil for image loading
               //  implementation("androidx.compose.material:material-ripple:1.7.0-alpha05")
             }
         }
