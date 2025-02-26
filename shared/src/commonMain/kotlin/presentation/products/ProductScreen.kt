@@ -11,7 +11,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
+import coil3.compose.AsyncImagePainter
 import presentation.productComparison.Product
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.painterResource
+import rk_shopping.shared.generated.resources.Res
+import rk_shopping.shared.generated.resources.default_image_loader
 
 @Composable
 fun ProductScreen(
@@ -60,7 +65,7 @@ private fun ProductGrid(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, ExperimentalResourceApi::class)
 @Composable
 private fun ProductCard(
     product: Product,
@@ -73,14 +78,40 @@ private fun ProductCard(
         onClick = onClick
     ) {
         Column {
-            AsyncImage(
-                model = product.imageUrl,
-                contentDescription = product.name,
+            Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(180.dp),
-                contentScale = ContentScale.Crop
-            )
+                    .height(180.dp)
+            ) {
+                var imageState by remember { mutableStateOf<AsyncImagePainter.State>(AsyncImagePainter.State.Empty) }
+                
+                AsyncImage(
+                    model = product.imageUrl,
+                    contentDescription = product.name,
+                    modifier = Modifier.fillMaxSize(),
+                    contentScale = ContentScale.Crop,
+                    onState = { imageState = it }
+                )
+
+                // Show loading indicator or error placeholder
+                when (imageState) {
+                    is AsyncImagePainter.State.Loading -> {
+                        CircularProgressIndicator(
+                            modifier = Modifier.align(Alignment.Center)
+                        )
+                    }
+                    is AsyncImagePainter.State.Error -> {
+                        Image(
+                            painter = painterResource(Res.drawable.default_image_loader),
+                            contentDescription = "Error loading image",
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
+                    else -> {}
+                }
+            }
+
             Column(
                 modifier = Modifier
                     .padding(12.dp)
@@ -93,7 +124,7 @@ private fun ProductCard(
                 )
                 Spacer(modifier = Modifier.height(4.dp))
                 Text(
-                    text = product.price,
+                    text = product.formattedPrice,
                     style = MaterialTheme.typography.bodyLarge,
                     color = MaterialTheme.colorScheme.primary
                 )
