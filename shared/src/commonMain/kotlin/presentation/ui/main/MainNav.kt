@@ -68,17 +68,11 @@ fun MainNav(context: Context, logout: () -> Unit) {
                     ProductScreen(
                         viewModel = productViewModel,
                         onProductClick = { product ->
-                            try {
-                                val encodedName = URLEncoder.encode(product.name, UTF_8.name())
-                                val encodedPrice = URLEncoder.encode(product.price, UTF_8.name())
-                                val encodedImageUrl = URLEncoder.encode(product.imageUrl ?: "", UTF_8.name())
-                                navBottomBarController.navigate(
-                                    "single_product/$encodedName/$encodedPrice/$encodedImageUrl"
-                                )
-                            } catch (e: Exception) {
-                                // Handle navigation error
-                                println("Navigation error: ${e.message}")
-                            }
+                            val encodedName = URLEncoder.encode(product.name, UTF_8.name())
+                            val encodedPrice = URLEncoder.encode(product.price, UTF_8.name())
+                            val encodedImageUrl = URLEncoder.encode(product.imageUrl ?: "", UTF_8.name())
+                            val route = "single_product/$encodedName/$encodedPrice/$encodedImageUrl"
+                            navBottomBarController.navigate(route)
                         }
                     )
                 }
@@ -87,42 +81,27 @@ fun MainNav(context: Context, logout: () -> Unit) {
                     arguments = listOf(
                         navArgument("name") { 
                             type = NavType.StringType
-                            nullable = false
                             defaultValue = "Unknown Product"
                         },
                         navArgument("price") { 
                             type = NavType.StringType
-                            nullable = false
                             defaultValue = "$0.00"
                         },
                         navArgument("imageUrl") { 
                             type = NavType.StringType
-                            nullable = true
+                            defaultValue = ""
                         }
                     )
                 ) { backStackEntry ->
-                    try {
-                        val name = URLDecoder.decode(
-                            backStackEntry.arguments?.getString("name") ?: "Unknown Product", 
-                            UTF_8.name()
-                        )
-                        val price = URLDecoder.decode(
-                            backStackEntry.arguments?.getString("price") ?: "$0.00", 
-                            UTF_8.name()
-                        )
-                        val imageUrl = backStackEntry.arguments?.getString("imageUrl")?.let {
-                            URLDecoder.decode(it, UTF_8.name())
-                        }
-
-                        SingleProductScreen(
-                            product = Product.fromNavArgs(name, price, imageUrl),
-                            onBackClick = { navBottomBarController.popBackStack() }
-                        )
-                    } catch (e: Exception) {
-                        // Handle decoding error
-                        println("Decoding error: ${e.message}")
-                        navBottomBarController.popBackStack()
-                    }
+                    val name = URLDecoder.decode(backStackEntry.arguments?.getString("name"), UTF_8.name())
+                    val price = URLDecoder.decode(backStackEntry.arguments?.getString("price"), UTF_8.name())
+                    val imageUrl = URLDecoder.decode(backStackEntry.arguments?.getString("imageUrl"), UTF_8.name())
+                        .takeIf { it.isNotBlank() }
+                    
+                    SingleProductScreen(
+                        product = Product.fromNavArgs(name, price, imageUrl),
+                        onBackClick = { navBottomBarController.popBackStack() }
+                    )
                 }
                 composable(route = BottomNavigation.Wishlist.route) {
                     WishlistNav()
