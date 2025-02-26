@@ -27,7 +27,6 @@ import com.google.maps.android.compose.MapUiSettings
 import com.google.maps.android.compose.Marker
 import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
-import com.google.maps.android.compose.rememberMarkerState
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -36,7 +35,6 @@ actual fun MapComponent(
     onLatitude: (Double) -> Unit,
     onLongitude: (Double) -> Unit,
 ) {
-
     val fusedLocationClient = remember { LocationServices.getFusedLocationProviderClient(context) }
     var currentLocation by remember { mutableStateOf<LatLng?>(null) }
     val cameraPositionState = rememberCameraPositionState()
@@ -48,13 +46,12 @@ actual fun MapComponent(
                 currentLocation = latLng
                 cameraPositionState.position = CameraPosition.fromLatLngZoom(latLng, 15f)
                 onLatitude(currentLocation?.latitude ?: 0.0)
-                onLongitude(currentLocation?.latitude ?: 0.0)
+                onLongitude(currentLocation?.longitude ?: 0.0)
             }
         } else {
             permissionState.launchPermissionRequest()
         }
     }
-
 
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -67,7 +64,7 @@ actual fun MapComponent(
             onMapClick = { latLng ->
                 currentLocation = latLng
                 onLatitude(currentLocation?.latitude ?: 0.0)
-                onLongitude(currentLocation?.latitude ?: 0.0)
+                onLongitude(currentLocation?.longitude ?: 0.0)
             }
         ) {
             currentLocation?.let {
@@ -79,7 +76,6 @@ actual fun MapComponent(
         }
     }
 }
-
 
 private fun getLastKnownLocation(
     context: Context,
@@ -94,7 +90,13 @@ private fun getLastKnownLocation(
         fusedLocationClient.lastLocation.addOnSuccessListener { location: Location? ->
             location?.let {
                 onLocationReceived(LatLng(it.latitude, it.longitude))
+            } ?: run {
+                // Log if location is null
+                println("Location is null")
             }
         }
+    } else {
+        // Log permission not granted
+        println("Location permission not granted")
     }
 }
