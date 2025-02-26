@@ -24,7 +24,11 @@ import rk_shopping.shared.generated.resources.*
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalResourceApi::class)
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+    onNotificationClick: () -> Unit = {},
+    onCategoryClick: () -> Unit = {},
+    onProductClick: (String) -> Unit = {}
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -58,7 +62,8 @@ fun HomeScreen() {
                 modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)
-                    .background(Color(0xFFFFE4E4)),
+                    .background(Color(0xFFFFE4E4))
+                    .clickable(onClick = onNotificationClick),
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
@@ -110,7 +115,7 @@ fun HomeScreen() {
             Text(
                 text = "See All",
                 color = Color.Red,
-                modifier = Modifier.clickable { }
+                modifier = Modifier.clickable(onClick = onCategoryClick)
             )
         }
 
@@ -122,7 +127,10 @@ fun HomeScreen() {
             horizontalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             items(categories) { category ->
-                CategoryItem(category)
+                CategoryItem(
+                    category = category,
+                    onClick = { onProductClick(category.name) }
+                )
             }
         }
 
@@ -152,9 +160,13 @@ fun HomeScreen() {
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-private fun CategoryItem(category: Category) {
+private fun CategoryItem(
+    category: Category,
+    onClick: () -> Unit
+) {
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.clickable(onClick = onClick)
     ) {
         Box(
             modifier = Modifier
