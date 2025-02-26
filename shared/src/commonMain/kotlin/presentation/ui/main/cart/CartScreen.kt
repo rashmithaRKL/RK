@@ -7,12 +7,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import common.Context
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.painterResource
+import rk_shopping.shared.generated.resources.Res
 
-@Composable
-fun CartNav(context: Context) {
-    CartScreen()
-}
-
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun CartScreen() {
     Column(
@@ -20,11 +19,17 @@ fun CartScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
+        Icon(
+            painter = painterResource(Res.drawable.cart_border),
+            contentDescription = "Empty Cart",
+            modifier = Modifier.size(64.dp)
+        )
+        Spacer(modifier = Modifier.height(16.dp))
         Text(
             text = "Shopping Cart",
             style = MaterialTheme.typography.headlineMedium
         )
-        Spacer(modifier = Modifier.height(16.dp))
+        Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = "Your cart is empty",
             style = MaterialTheme.typography.bodyLarge

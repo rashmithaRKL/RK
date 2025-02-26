@@ -13,14 +13,6 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import rk_shopping.shared.generated.resources.Res
 
-@Composable
-fun ProfileNav(
-    context: Context,
-    logout: () -> Unit = {}
-) {
-    ProfileScreen(onLogout = logout)
-}
-
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun ProfileScreen(
@@ -36,7 +28,7 @@ fun ProfileScreen(
         
         // Profile Icon
         Icon(
-            painter = painterResource(Res.drawable.profile),
+            painter = painterResource(Res.drawable.profile2),
             contentDescription = "Profile",
             modifier = Modifier
                 .size(100.dp)
@@ -60,17 +52,17 @@ fun ProfileScreen(
         )
         
         ProfileOption(
-            icon = Res.drawable.shipping,
+            icon = Res.drawable.location,
             title = "Shipping Address"
         )
         
         ProfileOption(
-            icon = Res.drawable.payment,
+            icon = Res.drawable.wallet,
             title = "Payment Methods"
         )
         
         ProfileOption(
-            icon = Res.drawable.coupon,
+            icon = Res.drawable.coupon2,
             title = "My Coupons"
         )
         
@@ -81,7 +73,7 @@ fun ProfileScreen(
             modifier = Modifier.fillMaxWidth()
         ) {
             Icon(
-                painter = painterResource(Res.drawable.exit),
+                painter = painterResource(Res.drawable.close),
                 contentDescription = "Logout"
             )
             Spacer(modifier = Modifier.width(8.dp))

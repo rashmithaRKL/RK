@@ -10,11 +10,6 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.painterResource
 import rk_shopping.shared.generated.resources.Res
 
-@Composable
-fun WishlistNav() {
-    WishlistScreen()
-}
-
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun WishlistScreen() {
@@ -24,7 +19,7 @@ fun WishlistScreen() {
         verticalArrangement = Arrangement.Center
     ) {
         Icon(
-            painter = painterResource(Res.drawable.heart2),
+            painter = painterResource(Res.drawable.heart_border2),
             contentDescription = "Wishlist",
             modifier = Modifier.size(64.dp)
         )
