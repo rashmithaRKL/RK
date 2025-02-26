@@ -14,7 +14,10 @@ import coil3.compose.AsyncImage
 import presentation.productComparison.Product
 
 @Composable
-fun ProductScreen(viewModel: ProductViewModel) {
+fun ProductScreen(
+    viewModel: ProductViewModel,
+    onProductClick: (Product) -> Unit
+) {
     var selectedTab by remember { mutableStateOf(0) }
     val tabs = listOf("T-Shirts", "Trousers", "Shoes")
 
@@ -30,15 +33,18 @@ fun ProductScreen(viewModel: ProductViewModel) {
         }
 
         when (selectedTab) {
-            0 -> ProductGrid(products = viewModel.getTShirts())
-            1 -> ProductGrid(products = viewModel.getTrousers())
-            2 -> ProductGrid(products = viewModel.getShoes())
+            0 -> ProductGrid(products = viewModel.getTShirts(), onProductClick = onProductClick)
+            1 -> ProductGrid(products = viewModel.getTrousers(), onProductClick = onProductClick)
+            2 -> ProductGrid(products = viewModel.getShoes(), onProductClick = onProductClick)
         }
     }
 }
 
 @Composable
-private fun ProductGrid(products: List<Product>) {
+private fun ProductGrid(
+    products: List<Product>,
+    onProductClick: (Product) -> Unit
+) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         contentPadding = PaddingValues(16.dp),
@@ -46,17 +52,25 @@ private fun ProductGrid(products: List<Product>) {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(products) { product ->
-            ProductCard(product = product)
+            ProductCard(
+                product = product,
+                onClick = { onProductClick(product) }
+            )
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun ProductCard(product: Product) {
+private fun ProductCard(
+    product: Product,
+    onClick: () -> Unit
+) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(280.dp)
+            .height(280.dp),
+        onClick = onClick
     ) {
         Column {
             AsyncImage(

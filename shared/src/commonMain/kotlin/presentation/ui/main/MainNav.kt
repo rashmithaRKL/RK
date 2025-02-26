@@ -20,10 +20,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import common.ChangeStatusBarColors
 import common.Context
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -31,6 +33,8 @@ import org.jetbrains.compose.resources.painterResource
 import presentation.navigation.BottomNavigation
 import presentation.products.ProductScreen
 import presentation.products.ProductViewModel
+import presentation.products.SingleProductScreen
+import presentation.productComparison.Product
 import presentation.theme.DefaultCardColorsTheme
 import presentation.theme.DefaultNavigationBarItemTheme
 import presentation.ui.main.cart.CartNav
@@ -58,7 +62,30 @@ fun MainNav(context: Context, logout: () -> Unit) {
                     HomeNav(logout = logout)
                 }
                 composable(route = BottomNavigation.Products.route) {
-                    ProductScreen(viewModel = productViewModel)
+                    ProductScreen(
+                        viewModel = productViewModel,
+                        onProductClick = { product ->
+                            navBottomBarController.navigate(
+                                "single_product/${product.name}/${product.price}/${product.imageUrl}"
+                            )
+                        }
+                    )
+                }
+                composable(
+                    route = "single_product/{name}/{price}/{imageUrl}",
+                    arguments = listOf(
+                        navArgument("name") { type = NavType.StringType },
+                        navArgument("price") { type = NavType.StringType },
+                        navArgument("imageUrl") { type = NavType.StringType }
+                    )
+                ) { backStackEntry ->
+                    val name = backStackEntry.arguments?.getString("name") ?: ""
+                    val price = backStackEntry.arguments?.getString("price") ?: ""
+                    val imageUrl = backStackEntry.arguments?.getString("imageUrl")
+                    SingleProductScreen(
+                        product = Product(name = name, price = price, imageUrl = imageUrl),
+                        onBackClick = { navBottomBarController.popBackStack() }
+                    )
                 }
                 composable(route = BottomNavigation.Wishlist.route) {
                     WishlistNav()
@@ -83,6 +110,11 @@ fun BottomNavigationUI(
 ) {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
+
+    // Don't show bottom navigation on single product screen
+    if (currentRoute?.startsWith("single_product") == true) {
+        return
+    }
 
     Card(
         colors = DefaultCardColorsTheme(),
