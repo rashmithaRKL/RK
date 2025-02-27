@@ -43,7 +43,6 @@ class SharedConventionPlugin : Plugin<Project> {
                     }
                 }
 
-
                 commonMain {
                     dependencies {
                         implementation(composeDeps.runtime)
@@ -89,13 +88,6 @@ class SharedConventionPlugin : Plugin<Project> {
                         api(libs.findLibrary("coil3.svg").get())
                         api(libs.findLibrary("coil3.core").get())
                         api(libs.findLibrary("coil3.video").get())
-                    }
-                }
-
-                iosMain {
-                    dependencies {
-                        implementation(libs.findLibrary("ktor.darwin.ios").get())
-                        implementation(libs.findLibrary("ktor.ios").get())
                     }
                 }
             }
